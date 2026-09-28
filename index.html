@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Analytics Campus | Learn Data Analytics for Beginners</title>
+<meta id="md" name="description" content="Free data analytics tutorials for beginners: Excel, statistics, econometrics, Python, R, SQL, Stata and SPSS.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1220;--gold:#f5b301;--blue:#2f6fed;--line:#e3e8ef;--soft:#f6f8fb;--mut:#55637a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:'Space Grotesk',Arial,sans-serif;color:var(--navy);background:#fff;line-height:1.6}
+a{color:inherit}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.logo{font-weight:700;font-size:19px;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo b{width:26px;height:26px;background:var(--navy);color:var(--gold);display:grid;place-items:center;border-radius:5px;font-size:14px}
+nav{display:flex;gap:26px}
+nav a{text-decoration:none;color:var(--mut);font-weight:500;padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--navy);border-color:var(--gold)}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:12px 22px;border-radius:6px;text-decoration:none;border:2px solid var(--gold);transition:.2s;cursor:pointer;font-family:inherit;font-size:16px}
+.btn:hover{background:#ffc933;transform:translateY(-1px)}
+.btn.o{background:transparent;color:inherit;border-color:currentColor}
+.btn.o:hover{background:rgba(255,255,255,.1)}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:18px;cursor:pointer}
+.page{display:none}.page.on{display:block}
+section{padding:72px 0}
+.dark{background:var(--navy);color:#fff}
+.soft{background:var(--soft)}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.08;margin:0 0 18px;font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(26px,4vw,38px);line-height:1.15;margin:0 0 12px;letter-spacing:-.01em}
+h3{font-size:19px;margin:0 0 6px}
+.lead{font-size:19px;color:var(--mut);max-width:620px;margin:0 0 28px}
+.dark .lead{color:#b8c3d6}
+.k{color:var(--gold);font-weight:700}
+.hero{padding:64px 0 80px;background:radial-gradient(circle at 80% 20%,#1d2f5c 0,var(--navy) 55%);color:#fff}
+.hero .g{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:32px}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px;transition:.2s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(11,18,32,.09);border-color:var(--gold)}
+.card p{color:var(--mut);font-size:15px;margin:0 0 14px;flex:1}
+.card a.l{font-weight:700;text-decoration:none;color:var(--blue)}
+.card a.l:hover{text-decoration:underline}
+.ic{width:44px;height:44px;border-radius:8px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-weight:700;margin-bottom:14px;font-size:15px}
+.thumb{height:130px;border-radius:6px;margin:-8px -8px 14px;background:linear-gradient(135deg,#0b1220,#1f3364);display:flex;align-items:flex-end;gap:6px;padding:14px;position:relative;overflow:hidden}
+.thumb i{flex:1;background:var(--gold);opacity:.85;border-radius:2px 2px 0 0}
+.thumb i:nth-child(even){background:var(--blue)}
+.thumb span{position:absolute;top:10px;left:12px;font-size:12px;color:#fff;font-weight:700}
+.meta{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);margin-bottom:6px;font-weight:500}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.steps{display:grid;gap:14px}
+.steps div{border-left:3px solid var(--gold);padding:4px 0 4px 16px}
+.steps p{margin:0;color:#b8c3d6;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 4px}
+.chips button{font-family:inherit;font-size:15px;font-weight:500;background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px 16px;cursor:pointer}
+.chips button:hover{border-color:var(--gold)}
+.chips button.on{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+input,textarea{width:100%;font-family:inherit;font-size:16px;padding:12px 14px;border:1px solid #c9d2df;border-radius:6px;margin-bottom:14px}
+input:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+label{font-weight:500;font-size:14px;display:block;margin-bottom:4px}
+.cat h2{margin-top:44px}
+.pill{display:inline-block;background:var(--soft);border:1px solid var(--line);padding:2px 10px;border-radius:5px;font-size:13px;margin:0 6px 6px 0}
+.ph{padding:56px 0 8px}
+footer{background:var(--navy);color:#b8c3d6;padding:56px 0 24px}
+footer .f{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:32px}
+footer h4{color:#fff;margin:0 0 12px}
+footer a{display:block;text-decoration:none;padding:3px 0}
+footer a:hover{color:var(--gold)}
+.soc{display:flex;gap:10px;margin-top:14px}
+.soc a{width:38px;height:38px;border:1px solid #33425f;border-radius:6px;display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;padding:0}
+.copy{border-top:1px solid #23304a;margin-top:36px;padding-top:18px;font-size:14px}
+.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none}
+.si{display:inline-block;width:18px;height:18px;vertical-align:-3px;margin-right:8px}
+.btn svg{fill:currentColor}
+.hb .si{width:22px;height:22px}
+.soc .si{width:20px;height:20px}
+.hb{display:flex;gap:8px}
+.hb a{width:40px;height:40px;border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;transition:.2s}
+.hb a:hover{border-color:var(--gold)}
+.hb .si,.soc .si,.lg .si{margin:0;vertical-align:middle}
+.btn.wa{background:#25D366;border-color:#25D366;color:#062b15}
+.btn.wa:hover{background:#3ee07d}
+.lg{width:68px;height:68px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;margin-bottom:14px}
+.lg img,.lg svg{width:42px;height:42px}
+.lg svg:not(.lgi){stroke:var(--navy)}
+.brand-img{border-radius:50%;object-fit:cover;background:#fff;display:block}
+.hero-logo{width:88px;height:88px;border:3px solid var(--gold);margin-bottom:18px}
+.about-logo{width:100%;max-width:260px;aspect-ratio:1;border:4px solid var(--gold)}
+.ab{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:center}
+.soc.lt a{color:var(--navy);border-color:var(--line);transition:.2s}
+.soc.lt a:hover{border-color:var(--gold)}
+.note{font-size:13px;margin-top:22px;color:#8898b3}
+footer .cl{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:19px;margin-bottom:8px}
+footer .cl img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+footer .cn a{display:flex;align-items:center;gap:10px}
+footer .cn .si{margin:0;width:18px;height:18px;fill:#fff}
+footer .cn .i-youtube{fill:#ff4d4d}
+footer .cn .i-whatsapp{fill:#25D366}
+@media(max-width:820px){
+ nav{display:none;position:absolute;top:66px;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:8px 20px 16px;border-bottom:1px solid var(--line)}
+ nav.open{display:flex}nav a{padding:12px 0}
+ .burger{display:block}.bar>.btn{display:none}
+ .hero .g,.two,.ab,footer .f{grid-template-columns:1fr}
+ .about-logo{max-width:200px}
+ section{padding:52px 0}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="w bar">
+<a class="logo" href="#home"><img src="logo.png" alt="Data Analytics Campus logo" width="36" height="36" onerror="this.style.display='none'">Data Analytics Campus</a>
+<nav id="nav" aria-label="Main">
+<a href="#home">Home</a><a href="#learn">Learn</a><a href="#tutorials">Tutorials</a><a href="#resources">Resources</a><a href="#about">About</a><a href="#contact">Contact</a>
+</nav>
+<a class="btn" href="#tutorials">Start Learning</a>
+<div class="hb"><a data-yt aria-label="Visit our YouTube channel" title="YouTube"><i data-i="youtube"></i></a><a data-wa aria-label="Chat with us on WhatsApp" title="WhatsApp"><i data-i="whatsapp"></i></a></div>
+<button class="burger" id="bg" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+</div></header>
+
+<main>
+<!-- HOME -->
+<div class="page" id="home">
+<div class="hero"><div class="w g">
+<div>
+<img class="brand-img hero-logo" src="logo.png" alt="Data Analytics Campus profile logo" width="88" height="88" onerror="this.style.display='none'">
+<h1>Data Analytics <span class="k">Campus</span></h1>
+<p class="lead" style="font-size:22px;color:#fff;margin-bottom:10px">Learn Data. Build Skills. Create Opportunities.</p>
+<p class="lead">Practical tutorials and resources for Excel, statistics, econometrics, programming and data analytics.</p>
+<div class="cta"><a class="btn" href="#tutorials">Start Learning</a><a class="btn o" data-yt>Subscribe on YouTube</a><a class="btn wa" data-wa>Chat on WhatsApp</a></div>
+</div>
+<svg viewBox="0 0 520 340" role="img" aria-label="Analytics dashboard with bar chart, line chart, donut chart, KPI cards, data table and code">
+<rect width="520" height="340" rx="10" fill="#111b30" stroke="#2a3a5c"/>
+<circle cx="18" cy="16" r="4" fill="#f5b301"/><circle cx="32" cy="16" r="4" fill="#2f6fed"/><circle cx="46" cy="16" r="4" fill="#3b4a6b"/>
+<g font-family="Arial" font-size="10" fill="#8fa0bd">
+<rect x="14" y="32" width="150" height="46" rx="6" fill="#182543"/><text x="24" y="50">Avg. score</text><text x="24" y="70" font-size="18" fill="#f5b301" font-weight="700">78.4</text>
+<rect x="175" y="32" width="150" height="46" rx="6" fill="#182543"/><text x="185" y="50">R-squared</text><text x="185" y="70" font-size="18" fill="#fff" font-weight="700">0.86</text>
+<rect x="336" y="32" width="170" height="46" rx="6" fill="#182543"/><text x="346" y="50">Observations</text><text x="346" y="70" font-size="18" fill="#fff" font-weight="700">12,480</text>
+<rect x="14" y="88" width="230" height="120" rx="6" fill="#182543"/><text x="24" y="104">Sales by region</text>
+<rect x="30" y="150" width="24" height="46" fill="#f5b301"/><rect x="66" y="128" width="24" height="68" fill="#2f6fed"/><rect x="102" y="140" width="24" height="56" fill="#f5b301"/><rect x="138" y="116" width="24" height="80" fill="#2f6fed"/><rect x="174" y="132" width="24" height="64" fill="#f5b301"/><rect x="210" y="146" width="24" height="50" fill="#2f6fed"/>
+<rect x="254" y="88" width="160" height="120" rx="6" fill="#182543"/><text x="264" y="104">Trend</text>
+<polyline points="266,190 296,170 326,176 356,142 386,150 404,120" fill="none" stroke="#f5b301" stroke-width="2.5"/>
+<polyline points="266,196 296,186 326,184 356,170 386,166 404,150" fill="none" stroke="#2f6fed" stroke-width="2"/>
+<rect x="424" y="88" width="82" height="120" rx="6" fill="#182543"/>
+<circle cx="465" cy="156" r="28" fill="none" stroke="#2f6fed" stroke-width="12"/>
+<circle cx="465" cy="156" r="28" fill="none" stroke="#f5b301" stroke-width="12" stroke-dasharray="110 176" transform="rotate(-90 465 156)"/>
+<rect x="14" y="218" width="240" height="108" rx="6" fill="#182543"/>
+<text x="24" y="236" fill="#f5b301">Region</text><text x="110" y="236" fill="#f5b301">Units</text><text x="180" y="236" fill="#f5b301">Growth</text>
+<text x="24" y="256">North</text><text x="110" y="256">1,240</text><text x="180" y="256">+8.2%</text>
+<text x="24" y="276">South</text><text x="110" y="276">980</text><text x="180" y="276">+5.1%</text>
+<text x="24" y="296">East</text><text x="110" y="296">1,510</text><text x="180" y="296">+11.4%</text>
+<text x="24" y="316">West</text><text x="110" y="316">760</text><text x="180" y="316">-1.3%</text>
+<rect x="264" y="218" width="242" height="108" rx="6" fill="#0b1220" stroke="#2a3a5c"/>
+<g font-family="Courier New,monospace" font-size="10.5">
+<text x="276" y="238" fill="#8fa0bd">import pandas as pd</text>
+<text x="276" y="256" fill="#fff">df = pd.read_csv(<tspan fill="#f5b301">"data.csv"</tspan>)</text>
+<text x="276" y="274" fill="#fff">df.describe()</text>
+<text x="276" y="292" fill="#fff">model = smf.ols(<tspan fill="#f5b301">"y ~ x"</tspan>, df)</text>
+<text x="276" y="310" fill="#2f6fed">print(model.fit().summary())</text></g>
+</g></svg>
+</div></div>
+
+<section><div class="w">
+<h2>What You'll Learn</h2><p class="lead">Eight core skills that data analysts use every day, taught step by step.</p>
+<div class="grid" id="skills"></div>
+</div></section>
+
+<section class="soft"><div class="w"><h2>Tools We Teach</h2><p class="lead">Learn the software and technologies used to collect, clean, analyse, visualize and interpret data.</p>
+<div class="grid" id="tools"></div>
+<p class="note" style="color:var(--mut)">Software names and logos belong to their respective owners and are shown only to identify the tools we teach. Data Analytics Campus is not affiliated with or endorsed by these companies.</p>
+</div></section>
+
+<section class="dark"><div class="w two">
+<div><h2>Learn by Doing</h2><p class="lead">Theory alone does not make you a data analyst. Every tutorial here uses real data and shows each click, formula or line of code, so you can follow along and get the same result.</p><a class="btn" href="#tutorials">Explore Tutorials</a></div>
+<div class="steps">
+<div><h3>Open the data</h3><p>Start with a real dataset, not a made-up example.</p></div>
+<div><h3>Follow the steps</h3><p>Watch the tutorial and repeat each step on your own computer.</p></div>
+<div><h3>Read the results</h3><p>Learn what the numbers mean and how to explain them.</p></div>
+</div></div></section>
+
+<section><div class="w">
+<h2>Latest Tutorials</h2><p class="lead">New practical tutorials for beginners, straight from the channel.</p>
+<div class="grid" id="latest"></div>
+</div></section>
+
+<section class="soft"><div class="w two">
+<div><h2>Learn With Data Analytics Campus on YouTube</h2><p class="lead">Watch practical tutorials designed to help you build real-world data analytics skills.</p><div class="cta"><a class="btn" data-yt>Subscribe on YouTube</a><a class="btn o" href="#tutorials" style="color:var(--navy)">Watch Tutorials</a></div></div>
+<div class="card" style="text-align:center"><div class="lg" style="margin:0 auto 14px"><i data-i="youtube"></i></div><h3>Free video tutorials</h3><p>Excel, statistics, econometrics and more. New lessons added regularly.</p></div>
+</div></section>
+
+<section><div class="w">
+<h2>Who Is This For?</h2>
+<div class="grid" id="who"></div>
+</div></section>
+
+<section class="dark" style="text-align:center"><div class="w">
+<h2>Start Building Your Data Skills Today</h2>
+<p class="lead" style="margin:0 auto 26px">Learn practical skills that can help you study, work with data and build your career.</p>
+<div class="cta" style="justify-content:center"><a class="btn" href="#tutorials">Explore Tutorials</a><a class="btn o" data-yt>Subscribe on YouTube</a><a class="btn wa" data-wa>Chat With Us on WhatsApp</a></div>
+</div></section>
+</div>
+
+<!-- LEARN -->
+<div class="page" id="learn"><div class="w ph">
+<h1>Learn Data Analytics</h1><p class="lead">A clear learning path through Excel, statistics, econometrics and data tools. Pick a topic to see its tutorials.</p>
+<div class="cat" id="learnBox"></div>
+</div><div style="height:60px"></div></div>
+
+<!-- TUTORIALS -->
+<div class="page" id="tutorials"><div class="w ph">
+<h1>Data Analysis Tutorials</h1><p class="lead">Search the library or filter by subject.</p>
+<label for="q">Search</label>
+<input id="q" type="search" placeholder="Search tutorials…">
+<div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+<div class="grid" id="lib"></div>
+<p id="none" style="display:none;margin-top:24px;color:var(--mut)">No tutorials match your search. Try a different word or choose All.</p>
+</div><div style="height:60px"></div></div>
+
+<!-- RESOURCES -->
+<div class="page" id="resources"><div class="w ph">
+<h1>Free Learning Resources</h1><p class="lead">Templates, datasets and guides to practise with. Each card can link to a download or external page.</p>
+<div class="grid" id="res"></div>
+</div><div style="height:60px"></div></div>
+
+<!-- ABOUT -->
+<div class="page" id="about"><div class="w ph">
+<div class="ab"><img class="brand-img about-logo" src="logo.png" alt="Data Analytics Campus official profile image" onerror="this.style.display='none'"><div><h1>About Data Analytics Campus</h1>
+<p class="lead">Data Analytics Campus is an educational platform created to make data analytics easier and more accessible to students and beginners.</p></div></div>
+<div class="dark" style="border-radius:8px;padding:32px;margin:28px 0"><h2>Our Mission</h2><p class="lead" style="margin:0;color:var(--gold);font-size:22px">Making data analytics easier to learn, understand and apply.</p></div>
+<h2>Our principles</h2>
+<div class="grid" id="prin"></div>
+</div><div style="height:60px"></div></div>
+
+<!-- CONTACT -->
+<div class="page" id="contact"><div class="w ph two" style="align-items:start">
+<div><h1>Contact Us</h1><p class="lead">Have a question or a topic you want covered? Message us on WhatsApp for the fastest reply, or send the form.</p>
+<a class="btn wa" data-wa style="font-size:18px;padding:16px 28px">Chat on WhatsApp</a>
+<p style="margin:16px 0 6px;font-weight:700">WhatsApp: <a href="tel:+250798706429">+250 798706429</a></p>
+<p style="margin:0 0 22px">YouTube: <a data-yt style="color:var(--blue);font-weight:700">Subscribe / Visit Channel</a></p>
+<div class="soc lt"><a data-yt aria-label="YouTube"><i data-i="youtube"></i></a><a data-wa aria-label="WhatsApp"><i data-i="whatsapp"></i></a><a data-fb aria-label="Facebook"><i data-i="facebook"></i></a><a data-ig aria-label="Instagram"><i data-i="instagram"></i></a><a data-li aria-label="LinkedIn"><i data-i="linkedin"></i></a></div></div>
+<form id="cf">
+<label for="n">Name</label><input id="n" required>
+<label for="e">Email</label><input id="e" type="email" required>
+<label for="s">Subject</label><input id="s" required>
+<label for="m">Message</label><textarea id="m" rows="5" required></textarea>
+<button class="btn" type="submit">Send Message</button>
+</form></div><div style="height:60px"></div></div>
+</main>
+
+<footer><div class="w">
+<div class="f">
+<div><div class="cl"><img src="logo.png" alt="Data Analytics Campus logo" width="42" height="42" onerror="this.style.display='none'">Data Analytics Campus</div><p>Learn Data. Build Skills. Create Opportunities.</p></div>
+<div><h4>Quick Links</h4><a href="#home">Home</a><a href="#learn">Learn</a><a href="#tutorials">Tutorials</a><a href="#resources">Resources</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+<div><h4>Learning</h4><div id="fl"></div></div>
+<div class="cn"><h4>Connect With Us</h4><a data-yt><i data-i="youtube"></i>YouTube</a><a data-wa><i data-i="whatsapp"></i>WhatsApp</a><a data-fb><i data-i="facebook"></i>Facebook</a><a data-ig><i data-i="instagram"></i>Instagram</a><a data-li><i data-i="linkedin"></i>LinkedIn</a></div>
+</div>
+<p class="note">Software names and logos belong to their respective owners and are used only to identify the tools taught. Data Analytics Campus is not affiliated with or endorsed by them.</p>
+<div class="copy">&copy; 2026 Data Analytics Campus. All rights reserved.</div>
+</div></footer>
+
+<script>
+/* ===== EDIT HERE ===== */
+var CH="https://www.youtube.com/channel/UCRe5a3ppExEhABXufvsVP-A?sub_confirmation=1";
+var WA="https://wa.me/250798706429?text=Hello%20Data%20Analytics%20Campus%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20tutorials%20and%20resources.";
+var EMAIL="vitalfayida@gmail.com";
+var FB="#",IG="#",LI="#"; /* replace # with your social page links */
+
+/* Tutorials: add a line to add a tutorial. link:"" opens your channel; paste a video link to open that video. */
+var T=[
+{t:"How to Create a Google Form",c:"Excel",l:"Beginner",d:"Build a survey, share it and collect responses in Google Forms.",u:""},
+{t:"Excel Dashboard Tutorial",c:"Excel",l:"Intermediate",d:"Combine charts, slicers and KPIs into one interactive dashboard.",u:""},
+{t:"How to Create a Pivot Table in Excel",c:"Excel",l:"Beginner",d:"Summarise thousands of rows in a few clicks with pivot tables.",u:""},
+{t:"Excel SUMIF Formula Tutorial",c:"Excel",l:"Beginner",d:"Add up values that meet a condition using SUMIF and SUMIFS.",u:""},
+{t:"How to Calculate Average in Excel",c:"Excel",l:"Beginner",d:"Use AVERAGE, AVERAGEIF and weighted averages correctly.",u:""},
+{t:"Excel Data Cleaning for Beginners",c:"Excel",l:"Beginner",d:"Remove duplicates, fix text and handle missing values.",u:""},
+{t:"Descriptive Statistics Explained",c:"Statistics",l:"Beginner",d:"Mean, median, standard deviation and how to read them.",u:""},
+{t:"Hypothesis Testing Step by Step",c:"Statistics",l:"Intermediate",d:"Understand null hypotheses, p-values and test decisions.",u:""},
+{t:"OLS Regression for Beginners",c:"Econometrics",l:"Intermediate",d:"Estimate and interpret a simple linear regression model.",u:""},
+{t:"Testing for Heteroskedasticity",c:"Econometrics",l:"Advanced",d:"Detect unequal variance and fix it with robust errors.",u:""},
+{t:"Python for Data Analysis: First Steps",c:"Python",l:"Beginner",d:"Load a CSV file and explore it with pandas.",u:""},
+{t:"Getting Started with R",c:"R",l:"Beginner",d:"Install R and RStudio and run your first analysis.",u:""},
+{t:"SQL SELECT and WHERE Basics",c:"SQL",l:"Beginner",d:"Query a database and filter rows with simple SQL.",u:""},
+{t:"Stata Basics: Import and Describe Data",c:"Stata",l:"Beginner",d:"Load a dataset and summarise it using Stata commands.",u:""},
+{t:"SPSS Frequencies and Crosstabs",c:"SPSS",l:"Beginner",d:"Produce frequency tables and cross-tabulations in SPSS.",u:""},
+{t:"Build Your First Power BI Dashboard",c:"Power BI",l:"Beginner",d:"Import data, create visuals and publish a simple report.",u:""},
+{t:"Tableau Basics: Your First Visualization",c:"Tableau",l:"Beginner",d:"Connect to data and build charts by dragging fields.",u:""},
+{t:"EViews Time Series Basics",c:"EViews",l:"Intermediate",d:"Import data, plot a series and run a simple time series model.",u:""}
+];
+/* Icon keys: "si:name" = built-in brand logo; "loc:name:fallback" = your own file logos/name.png (generic icon if the file is missing); "g:name" = generic icon */
+var S=[["si:microsoftexcel","Microsoft Excel","Excel for Data Analysis","Formulas, pivot tables and dashboards for real datasets.","Excel"],["g:sigma","Statistics","Statistical Analysis","Averages, spread, probability and hypothesis testing explained clearly.","Statistics"],["g:line","Econometrics","Econometric Analysis","Regression and the methods used to test economic relationships.","Econometrics"],["si:python","Python","Python for Data Analysis","Analyse data with pandas and create charts with code.","Python"],["si:r","R","R Programming","Statistical computing and graphics used across research.","R"],["loc:sql:db","SQL","Database Analysis","Ask questions of databases and pull out exactly the data you need.","SQL"],["loc:stata:bars","Stata","Statistical & Econometric Analysis","Run regressions and panel data analysis for research.","Stata"],["loc:spss:table","SPSS","Statistical Analysis","Point-and-click statistics for surveys and social science.","SPSS"]];
+var TL=[["si:microsoftexcel","Microsoft Excel","Spreadsheets, formulas and pivot tables.","Excel"],["loc:stata:bars","Stata","Regression and panel data for research.","Stata"],["loc:spss:table","IBM SPSS Statistics","Statistics for surveys and social research.","SPSS"],["si:r","R","Statistical computing and graphics.","R"],["si:python","Python","Data analysis with pandas.","Python"],["si:powerbi","Microsoft Power BI","Interactive reports and dashboards.","Power BI"],["si:tableau","Tableau","Visual analytics and storytelling.","Tableau"],["loc:sql:db","SQL","Query and manage data in databases.","SQL"],["loc:eviews:act","EViews","Econometrics and time series.","EViews"]];
+var L={"Excel":["Excel Basics","Formulas & Functions","Data Cleaning","Pivot Tables","Dashboards","Power Query","Advanced Excel"],"Statistics":["Descriptive Statistics","Probability","Sampling","Hypothesis Testing","Regression","Inferential Statistics"],"Econometrics":["OLS","Regression Analysis","Hypothesis Testing","Heteroskedasticity","Autocorrelation","Econometric Applications"],"Programming & Data Tools":["Python","R","SQL","Stata","SPSS","Power BI","Tableau","EViews"]};
+var R=[["Excel templates","Ready-made workbooks for budgets, trackers and dashboards.","#"],["Datasets","Practice datasets in CSV and Excel format.","#"],["Cheat sheets","One-page guides to formulas, commands and tests.","#"],["Learning guides","Step-by-step PDF guides for beginners.","#"],["Statistics resources","Notes and examples on core statistical methods.","#"],["Econometrics resources","Regression notes, tests and worked examples.","#"],["Data-analysis tools","Useful free software and links for analysts.","#"]];
+var W=[["Students","Get the practical skills your course does not always teach."],["Beginners","Start from zero with clear, simple explanations."],["Researchers","Clean, analyse and present your research data."],["Aspiring Data Analysts","Build the skills employers look for."],["Economics & Statistics Students","Learn regression and testing with real software."]];
+var P=[["Practical learning","Every lesson is built around doing, not just watching."],["Simple explanations","Complex ideas explained in plain language."],["Real-world applications","Examples from real datasets and real problems."],["Beginner-friendly tutorials","No prior experience needed to start."],["Career-oriented skills","Focus on tools and methods used in real jobs."]];
+/* ===== END EDIT AREA ===== */
+
+var $=function(i){return document.getElementById(i)};
+var titles={home:"Data Analytics Campus | Learn Data Analytics for Beginners",learn:"Learn Data Analytics | Excel, Statistics, Econometrics | Data Analytics Campus",tutorials:"Data Analysis Tutorials | Excel, Python, R, SQL, Stata, SPSS",resources:"Free Data Analytics Resources | Templates, Datasets, Cheat Sheets",about:"About Data Analytics Campus | Data Analytics for Beginners",contact:"Contact Data Analytics Campus"};
+var descs={home:"Free data analytics tutorials for beginners: Excel, statistics, econometrics, Python, R, SQL, Stata and SPSS.",learn:"Follow a clear learning path for Excel for data analysis, statistics and econometrics tutorials.",tutorials:"Search practical data analysis tutorials for Excel, Python for data analysis, R, SQL, Stata and SPSS.",resources:"Download Excel templates, datasets and cheat sheets for learning data analysis.",about:"Data Analytics Campus makes data analytics easier to learn, understand and apply.",contact:"Contact Data Analytics Campus with questions or tutorial requests."};
+
+var IC={"youtube":["FF0000","M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"],"whatsapp":["25D366","M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"],"microsoftexcel":["217346","M23 1.5q.41 0 .7.3.3.29.3.7v19q0 .41-.3.7-.29.3-.7.3H7q-.41 0-.7-.3-.3-.29-.3-.7V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h5V2.5q0-.41.3-.7.29-.3.7-.3zM6 13.28l1.42 2.66h2.14l-2.38-3.87 2.34-3.8H7.46l-1.3 2.4-.05.08-.04.09-.64-1.28-.66-1.29H2.59l2.27 3.82-2.48 3.85h2.16zM14.25 21v-3H7.5v3zm0-4.5v-3.75H12v3.75zm0-5.25V7.5H12v3.75zm0-5.25V3H7.5v3zm8.25 15v-3h-6.75v3zm0-4.5v-3.75h-6.75v3.75zm0-5.25V7.5h-6.75v3.75zm0-5.25V3h-6.75v3Z"],"powerbi":["F2C811","M10 12a1 1 0 0 1 1 1v11H4a1 1 0 0 1-1-1V13a1 1 0 0 1 1-1h6Zm-2-.5V7a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17h-4.5V13a1.5 1.5 0 0 0-1.5-1.5H8Zm5-6V1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v22a1 1 0 0 1-1 1h-3.5V7A1.5 1.5 0 0 0 15 5.5h-2Z"],"python":["3776AB","M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"],"r":["276DC3","M12 2.746c-6.627 0-12 3.599-12 8.037 0 3.897 4.144 7.144 9.64 7.88V16.26c-2.924-.915-4.925-2.755-4.925-4.877 0-3.035 4.084-5.494 9.12-5.494 5.038 0 8.757 1.683 8.757 5.494 0 1.976-.999 3.379-2.662 4.272.09.066.174.128.258.216.169.149.25.363.372.544 2.128-1.45 3.44-3.437 3.44-5.631 0-4.44-5.373-8.038-12-8.038zm-2.111 4.99v13.516l4.093-.002-.002-5.291h1.1c.225 0 .321.066.549.25.272.22.715.982.715.982l2.164 4.063 4.627-.002-2.864-4.826s-.086-.193-.265-.383a2.22 2.22 0 00-.582-.416c-.422-.214-1.149-.434-1.149-.434s3.578-.264 3.578-3.826c0-3.562-3.744-3.63-3.744-3.63zm4.127 2.93l2.478.002s1.149-.062 1.149 1.127c0 1.165-1.149 1.17-1.149 1.17h-2.478zm1.754 6.119c-.494.049-1.012.079-1.54.088v1.807a16.622 16.622 0 002.37-.473l-.471-.891s-.108-.183-.248-.394c-.039-.054-.08-.098-.111-.137z"],"tableau":["E97627","M11.654.174V2.377H9.682v.58h1.972V5.16h.696V2.957h1.97v-.58h-1.97V.174h-.348zm6.03 2.262l-.002 1.623v1.623h-2.957v.927h2.957v3.188H18.725l.011-1.582.02-1.576 1.465-.02 1.46-.01v-.927H18.728V2.436h-.522zm-12.407.06V5.686H2.291v.925H5.277V9.801h.985V6.61h3.013v-.925H6.262V2.496H5.77zm6.086 5.27v3.593H8.06v1.188h3.304v3.596h1.28v-3.596H15.953v-1.188H12.643V7.766h-.637zm9.721 1.55v2.221h-2.012v.811h2.012v2.261h.887v-2.261H24v-.811h-2.029V9.317h-.422zm-19.111.131V11.621H0v.621H1.973v2.194H2.64v-2.194h2v-.62H2.609V9.446h-.318zm15.709 4.516v3.254h-3.016v.927h3.016v3.217h1.072v-3.216H21.74v-.928H18.754v-3.254h-.533zm-12.463.008v3.246H2.262v.928h2.957v3.189H6.32v-3.189h2.955v-.928H6.32V13.97h-.55zm6.316 4.578l.002 1.103v1.1H9.566v.812h1.971v2.262h.928l.012-1.119.017-1.143H14.463v-.812h-2V18.549h-.465z"],"facebook":["0866FF","M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"],"instagram":["E4405F","M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"],"linkedin":["0A66C2","M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"]};
+var G={};(function(){var p={bars:'<path d="M12 20V10M18 20V4M6 20v-4"/>',code:'<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',sigma:'<path d="M18 7V4H6l6 8-6 8h12v-3"/>',line:'<path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>',act:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',db:'<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/>',table:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/>'};for(var k in p)G[k]='<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p[k]+'</svg>'})();
+function ico(s,c){var i=IC[s];return i?'<svg class="'+(c||"si")+' i-'+s+'" viewBox="0 0 24 24" fill="#'+i[0]+'" role="img" aria-label="'+s+' logo"><path d="'+i[1]+'"/></svg>':""}
+function lg(k){var p=k.split(":"),h;if(p[0]=="si")h=ico(p[1],"lgi");else if(p[0]=="loc")h='<img src="logos/'+p[1]+'.png" alt="'+p[1]+' logo" onerror="this.outerHTML=G.'+p[2]+'">';else h=G[p[1]];return '<div class="lg">'+h+'</div>'}
+function wire(attr,url,icon){document.querySelectorAll("["+attr+"]").forEach(function(a){a.href=url;if(url!="#"){a.target="_blank";a.rel="noopener"}if(a.textContent.trim()&&!a.querySelector("[data-i]"))a.insertAdjacentHTML("afterbegin",'<i data-i="'+icon+'"></i>')})}
+wire("data-yt",CH,"youtube");wire("data-wa",WA,"whatsapp");wire("data-fb",FB,"facebook");wire("data-ig",IG,"instagram");wire("data-li",LI,"linkedin");
+document.querySelectorAll("[data-i]").forEach(function(e){e.outerHTML=ico(e.getAttribute("data-i"))});
+
+function thumb(t,c){var b="";for(var i=0;i<7;i++){b+='<i style="height:'+(25+((t.charCodeAt(i*2%t.length)*7+i*13)%60))+'%"></i>'}return '<div class="thumb" role="img" aria-label="'+c+' tutorial thumbnail"><span>'+c+'</span>'+b+'</div>'}
+function tcard(x){return '<article class="card">'+thumb(x.t,x.c)+'<div class="meta"><span>'+x.c+'</span><span>'+x.l+'</span></div><h3>'+x.t+'</h3><p>'+x.d+'</p><a class="l" href="'+(x.u||CH)+'" target="_blank" rel="noopener">Watch Tutorial</a></article>'}
+
+$("skills").innerHTML=S.map(function(s){return '<article class="card">'+lg(s[0])+'<h3>'+s[1]+'</h3><p><b>'+s[2]+'</b><br>'+s[3]+'</p><a class="l" href="#tutorials" onclick="setCat(\''+s[4]+'\')">Learn More</a></article>'}).join("");
+$("tools").innerHTML=TL.map(function(s){return '<article class="card">'+lg(s[0])+'<h3>'+s[1]+'</h3><p>'+s[2]+'</p><a class="l" href="#tutorials" onclick="setCat(\''+s[3]+'\')">View Tutorials</a></article>'}).join("");
+$("latest").innerHTML=T.slice(0,6).map(tcard).join("");
+$("who").innerHTML=W.map(function(w){return '<article class="card"><h3>'+w[0]+'</h3><p style="margin:0">'+w[1]+'</p></article>'}).join("");
+$("prin").innerHTML=P.map(function(w,i){return '<article class="card"><h3>'+w[0]+'</h3><p style="margin:0">'+w[1]+'</p></article>'}).join("");
+$("res").innerHTML=R.map(function(r){return '<article class="card"><h3>'+r[0]+'</h3><p>'+r[1]+'</p><a class="l" href="'+r[2]+'">Download / Open</a></article>'}).join("");
+$("learnBox").innerHTML=Object.keys(L).map(function(k){return '<h2>'+k+'</h2><div class="grid" style="margin-top:16px">'+L[k].map(function(x){var c=(k=="Programming & Data Tools")?x:k;return '<article class="card"><h3>'+x+'</h3><p>Step-by-step '+x+' tutorials for beginners.</p><a class="l" href="#tutorials" onclick="setCat(\''+c+'\')">View tutorials</a></article>'}).join("")+'</div>'}).join("");
+$("fl").innerHTML=S.map(function(s){return '<a href="#tutorials" onclick="setCat(\''+s[4]+'\')">'+s[4]+'</a>'}).join("");
+
+var cats=["All","Excel","Statistics","Econometrics","Python","R","SQL","Stata","SPSS","Power BI","Tableau","EViews"],cur="All";
+function drawChips(){$("chips").innerHTML=cats.map(function(c){return '<button class="'+(c==cur?'on':'')+'" aria-pressed="'+(c==cur)+'" onclick="setCat(\''+c+'\',1)">'+c+'</button>'}).join("")}
+function drawLib(){var q=$("q").value.toLowerCase();var r=T.filter(function(x){return(cur=="All"||x.c==cur)&&(x.t+x.d+x.c).toLowerCase().indexOf(q)>-1});$("lib").innerHTML=r.map(tcard).join("");$("none").style.display=r.length?"none":"block"}
+function setCat(c,stay){cur=c;if(!stay){$("q").value=""}drawChips();drawLib()}
+$("q").oninput=drawLib;
+setCat("All");
+
+function route(){var h=(location.hash||"#home").slice(1);if(!$(h)||!document.querySelector("#"+h+".page"))h="home";
+document.querySelectorAll(".page").forEach(function(p){p.classList.toggle("on",p.id==h)});
+document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")=="#"+h)});
+document.title=titles[h];$("md").content=descs[h];$("nav").classList.remove("open");$("bg").setAttribute("aria-expanded","false");window.scrollTo(0,0)}
+window.addEventListener("hashchange",route);route();
+
+$("bg").onclick=function(){var o=$("nav").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+$("cf").onsubmit=function(e){e.preventDefault();location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent($("s").value)+"&body="+encodeURIComponent("From: "+$("n").value+" ("+$("e").value+")\n\n"+$("m").value)};
+</script>
+</body>
+</html>

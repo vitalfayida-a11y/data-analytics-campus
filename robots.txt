@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vitalfayida-a11y.github.io/data-analytics-campus/sitemap.xml
